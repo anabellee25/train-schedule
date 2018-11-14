@@ -1,0 +1,98 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Train Schedules</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="head" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 id="head2" class="display-3">Worldwide Train Times</h1>
+      <p id="head3" class="lead">A Comprehensive List of Real Time Train Schedules</p>
+    </div>
+  </div>
+
+  <div id="train-area" class="card">
+    <div class="card-header">
+     Current Train Schedule
+    </div>
+    <div id="static" class="card-body">
+      <div class="row">
+        <div class="col-4">
+          Train Name
+        </div>
+        <div class="col-2">
+          Destination
+        </div>
+        <div class="col-2">
+          Frequency (min)
+        </div>
+        <div class="col-2">
+          Next Arrival
+        </div>
+        <div class="col-2">
+          Minutes Away
+        </div>
+      </div>
+    </div>
+    <div id="fill" class="card-body">
+      <div class="row" id="each-row">
+
+        <div id="gen-train" class="col-4">
+             
+        </div>
+        <div id="gen-destination" class="col-2">
+            
+        </div>
+        <div id="gen-frequency" class="col-2">
+            
+        </div>
+        <div id="gen-arrival" class="col-2">
+            
+        </div>
+        <div id="gen-mins" class="col-2">
+        </div>
+      </div>
+  </div>
+  </div>
+
+  <div id="add-area" class="card">
+      <div class="card-header">
+        Add Train
+      </div>
+      <div class="card-body">
+          <form>
+              <div class="form-group">
+                <label for="train">Train Name</label>
+                <input type="text" class="form-control" id="train" placeholder="Polar Express">
+              </div>
+              <div class="form-group">
+                <label for="destination">Destination</label>
+                <input type="text" class="form-control" id="destination" placeholder="Add Destination Here">
+              </div>
+              <div class="form-group">
+                  <label for="time">First Train Time (HH:mm - Military Time)</label>
+                  <input type="text" class="form-control" id="time" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="frequency">Frequency</label>
+                  <input type="text" class="form-control" id="frequency" placeholder="">
+                </div>
+                <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+      </div>
+    </div>
+
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
