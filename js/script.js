@@ -1,7 +1,7 @@
 
   // Initialize Firebase
 
-  document.ready(function (){
+
 
   var config = {
     apiKey: "AIzaSyCYpIZZ1V4bgxDWa1w1_K2vgOCBnjDuaGM",
@@ -11,6 +11,7 @@
     storageBucket: "train-schedules-dc559.appspot.com",
     messagingSenderId: "161528377280"
   };
+
   firebase.initializeApp(config);
 
   var database = firebase.database();
@@ -32,9 +33,19 @@
           Train: train,
           Destination: destination,
           Frequency: frequency,
-          Time: time,
+          Time: time
+          
       });
-
+console.log(train, destination, frequency, time);
   });
 
+database.ref().on("child_added", function(childSnapshot) {
+
+  var curTrain = childSnapshot.val().Train;
+  var curDestination = childSnapshot.val().Destination;
+  var curFrequency = childSnapshot.val().Frequency;
+  var curTime = childSnapshot.val().Time;
+
+
+  $("#train-rows").append("<tr><td>" + curTrain + "</td><td>" + curDestination + "</td><td>" + curFrequency + "</td><td>" + curTime + "</td></tr>")
 });

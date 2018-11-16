@@ -11,6 +11,7 @@
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
+  <script src="https://momentjs.com/downloads/moment.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,49 +23,31 @@
     </div>
   </div>
 
-  <div id="train-area" class="card">
-    <div class="card-header">
-     Current Train Schedule
-    </div>
-    <div id="static" class="card-body">
-      <div class="row">
-        <div class="col-4">
-          Train Name
-        </div>
-        <div class="col-2">
-          Destination
-        </div>
-        <div class="col-2">
-          Frequency (min)
-        </div>
-        <div class="col-2">
-          Next Arrival
-        </div>
-        <div class="col-2">
-          Minutes Away
-        </div>
-      </div>
-    </div>
-    <div id="fill" class="card-body">
-      <div class="row" id="each-row">
 
-        <div id="gen-train" class="col-4">
-             
+  <div class="row">
+    <div class="col-12">
+    <div id="train-area" class="card">
+      <div class="card-header">
+          <div>Current Train</div>
         </div>
-        <div id="gen-destination" class="col-2">
-            
-        </div>
-        <div id="gen-frequency" class="col-2">
-            
-        </div>
-        <div id="gen-arrival" class="col-2">
-            
-        </div>
-        <div id="gen-mins" class="col-2">
+        <div class="card-body">
+          <table class="table table-hover" id='train-rows'>
+            <thead>
+              <tr>
+                <th>Train Name</th>
+                <th>Destination</th>
+                <th>Frequency (mins)</th>
+                <th>Next Arrival</th>
+                <th>Minutes Away</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+
+            </tbody>
+          </table>
         </div>
       </div>
-  </div>
-  </div>
 
   <div id="add-area" class="card">
       <div class="card-header">
@@ -74,7 +57,7 @@
           <form>
               <div class="form-group">
                 <label for="train">Train Name</label>
-                <input type="text" class="form-control" id="train" placeholder="Polar Express">
+                <input type="text" class="form-control" id="train" placeholder="Add name of train here">
               </div>
               <div class="form-group">
                 <label for="destination">Destination</label>
@@ -85,7 +68,7 @@
                   <input type="text" class="form-control" id="time" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="frequency">Frequency</label>
+                  <label for="frequency">Frequency (minutes) </label>
                   <input type="text" class="form-control" id="frequency" placeholder="">
                 </div>
                 <button id="submit" type="submit" class="btn btn-primary">Submit</button>
