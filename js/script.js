@@ -44,8 +44,32 @@ database.ref().on("child_added", function(childSnapshot) {
   var curTrain = childSnapshot.val().Train;
   var curDestination = childSnapshot.val().Destination;
   var curFrequency = childSnapshot.val().Frequency;
-  var curTime = childSnapshot.val().Time;
+  var firstTime = childSnapshot.val().Time;
+
+  // First Time (pushed back 1 year to make sure it comes before current time)
+  var firstConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+  console.log(firstConverted);
+
+  // Current Time
+  var currentTime = moment();
+  console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+  // Difference between the times
+  var diffBtwnTimes = moment().diff(moment(firstConverted), "minutes");
+  console.log("DIFFERENCE IN TIME: " + diffBtwnTimes);
+
+  // Time apart (remainder)
+  var timeApart = diffBtwnTimes % curFrequency;
+  console.log(timeApart);
+
+  // Minute Until Train
+  var minutesLeft = curFrequency - timeApart;
+  console.log("MINUTES TILL TRAIN: " + minutesLeft);
+
+  // Next Train
+  var nextTrain = moment().add(minutesLeft, "minutes");
+  console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
 
-  $("#train-rows").append("<tr><td>" + curTrain + "</td><td>" + curDestination + "</td><td>" + curFrequency + "</td><td>" + curTime + "</td></tr>")
+  $("#train-rows").append("<tr><td>" + curTrain + "</td><td>" + curDestination + "</td><td>" + curFrequency + "</td><td>" + firstTime +  "</td><td>" + minutesLeft + "</td></tr>")
 });

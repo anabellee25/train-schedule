@@ -8,7 +8,7 @@ body {
     background-size: cover;
     color: white;
     height: 250px;
-    width: 80%;
+    width: 75%;
     text-align: center;
     border-radius: 8px;
 }
@@ -29,7 +29,7 @@ body {
 }
 
 #train-area {
-    width: 80%;
+    width: 75%;
     margin: auto;
     margin-top: 20px;
 }
@@ -44,7 +44,7 @@ body {
 }
 
 #add-area {
-    width: 80%;
+    width: 75%;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
